@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC    
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<!-- struts2的action必须放在一个指定的包空间下定义 -->
+	<package name="default" extends="struts-default">
+	<!-- 定义处理请求URL为login.action的Action -->
+		<action name="login" class="LoginAction">
+			<result name="SUCCESS" >/success.jsp</result>
+			<result name="failure">/success.jsp</result>
+		</action>
+	</package>
+	<package name="ajax" extends="json-default">  
+		<action name="getGrids" class="GetGridsAction">
+			<result type="json" name="SUCCESS">
+				<param name="root">geojson</param> 
+			</result>
+			<result name="failure">/success.jsp</result>
+		</action>		
+	
+
+		<action name="changeScale" class="ChangeScaleAction">
+			<result type="json" name="SUCCESS">
+				<param name="root">geojson</param> 
+			</result>
+			<result name="failure">/success.jsp</result>
+		</action>
+		
+		
+		<action name="together" class="TogetherAction">
+			<result type="json" name="SUCCESS">
+				<param name="root">geojson</param> 
+			</result>
+			<result name="failure">/success.jsp</result>
+		</action>
+	</package>
+</struts>

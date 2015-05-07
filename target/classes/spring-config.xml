@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oxm="http://www.springframework.org/schema/oxm" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://www.springframework.org/schema/oxm 
+                        http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations">
+    		<value>classpath:jdbc.properties</value>
+    	</property>
+    </bean>
+    <!-- 数据源 -->             
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    	<property name="driverClassName" value="${driverClassName}"/>
+    	<property name="url" value="${url}"/>
+    	<property name="username" value="${username}"/>
+    	<property name="password" value="${password}"/>
+    	<property name="maxActive" value="100"/>
+    	<property name="maxIdle" value="30"/>
+    	<property name="maxWait" value="500"/>
+    	<property name="defaultAutoCommit" value="true"/>
+    </bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"/>
+    	<property name="configLocation" value="classpath:mybatis-config.xml"/>
+    	<property name="mapperLocations" value="classpath:com/gtech/iwhere/dao/xml/*.xml"/>
+    </bean>
+                        
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    	<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+    </bean>                    
+    <!-- 登陆 start -->             
+    <bean name="LoginAction" class="com.gtech.iwhere.controller.action.LoginAction">
+    	<property name="loginService" ref="LoginService"/>
+    </bean>      
+    <bean id="LoginService" class="com.gtech.iwhere.service.impl.LoginServiceImpl">
+    	<property name="loginDao" ref="LoginDaoImpl"/>
+    </bean>        
+    <bean id="LoginDaoImpl" class="com.gtech.iwhere.dao.impl.LoginDaoImpl">
+    	<property name="sqlSession" ref="sqlSessionTemplate"/>
+    </bean>
+    <!-- 登陆 end --> 
+    <!-- 指定四角点的区域的指定层级的网格编码  start-->
+    <bean name="GetGridsAction" class="com.gtech.iwhere.controller.action.GridsAction"/>
+	<!-- 指定四角点的区域的指定层级的网格编码  end-->
+	
+	<!-- 多尺度变换wsz -->
+	<bean name="ChangeScaleAction" class = "wsz.topo.action.ScaleAction" />
+	
+	<!-- 网格聚合wsz -->
+	<bean name="TogetherAction" class = "wsz.topo.action.TogetherAction" />
+</beans>

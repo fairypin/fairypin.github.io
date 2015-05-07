@@ -1,0 +1,35 @@
+.head{
+	margin:30px;
+	text-align: center
+	padding:0px;
+	border-left-style:none;
+	background-color: blue;
+	height: 55px;
+    width: 100%;
+}
+.map{
+	margin:0px;
+	padding:0px;
+	float: left;
+	background-color: black;
+	height: 400px;
+    width: 80%;
+}
+.search{
+	margin:0px;
+	padding:0px;
+	float: left;
+	background-color: red;
+	height: 400px;
+    width: 20%;
+}
+.bottom{
+	margin:0px;
+	padding:0px;
+	background-color: red;
+}
+.center{	
+	text-align: center
+}
+
+

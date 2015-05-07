@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="iwherecloud Maven Webapp"
+  id="myeclipse.1420350262947"
+  context-root="/iwherecloud"
+  j2ee-spec="1.7"
+  archive="iwherecloud Maven Webapp.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

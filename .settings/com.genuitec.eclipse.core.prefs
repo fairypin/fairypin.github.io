@@ -1,0 +1,5 @@
+#Fri Jan 30 15:22:03 CST 2015
+eclipse.preferences.version=1
+validator.Checked=src/main/webapp/js,src/main/webapp/ol,src/main/webapp/ol.js,src/main/webapp/wl/easyui/js/jquery.min.js,src/main/webapp/wl/ol/build/ol.js
+validator.Revalidate=false
+validator.Unchecked=

@@ -1,0 +1,68 @@
+body{margin:0;
+    border:1;
+    padding:0;
+}
+div{margin:0;
+    border:1;
+    padding:0;
+}
+
+.head{
+	margin:0px;
+	padding:0px;
+	border-left-style:none;
+	background-color: blue;
+	height: 55px;
+    width: 100%;
+}
+.map{
+	margin:0px;
+	padding:0px;
+	float: left;
+	background-color: black;
+	height: 400px;
+    width: 80%;
+}
+.search{
+	margin:0px;
+	padding:0px;
+	float: left;
+	background-color: red;
+	height: 400px;
+    width: 20%;
+}
+.bottom{
+	margin:0px;
+	padding:0px;
+	background-color: red;
+}
+/**
+ * The zoomslider in the second map shall be placed between the zoom-in and
+ * zoom-out buttons.
+ */
+#map2 .ol-zoom .ol-zoom-out {
+  margin-top: 204px;
+}
+#map2 .ol-zoomslider {
+  background-color: transparent;
+  top: 2.3em;
+}
+
+#map2 .ol-touch .ol-zoom .ol-zoom-out { 
+  margin-top: 212px;
+}
+#map2 .ol-touch .ol-zoomslider {
+  top: 2.75em;
+}
+
+#map2 .ol-zoom-in.ol-has-tooltip:hover [role=tooltip],
+#map2 .ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {
+  top: 3px;
+}
+
+#map2 .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
+#map2 .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
+  top: 232px;
+}
+
+
